@@ -42,13 +42,14 @@ public class PistaCarrera extends Thread {
                     etiqueta.setLocation(etiqueta.getLocation().x + 10, etiqueta.getLocation().y);
                     auto.repaint();
                 } else {
+                
                     break;
                 }
             } catch (InterruptedException ex) {
                 Logger.getLogger(PistaCarrera.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (etiqueta.getLocation().x >= auto.getBarrera().getLocation().x - 150) {
-
+                
                 if (auto1 > auto2 && auto1 > auto3 && auto1 > auto4) {
                     JOptionPane.showMessageDialog(null, "EL GANADOR ES EL CARRO UNO");
                 } else if (auto2 > auto1 && auto2 > auto3 && auto2 > auto4) {
@@ -61,6 +62,11 @@ public class PistaCarrera extends Thread {
                     JOptionPane.showMessageDialog(null, "ES UN EMPATE");
 
                 }
+                    auto.getCarrro1().setLocation(80,50);
+                    auto.getCarrr2().setLocation(80,160);
+                    auto.getCarrr3().setLocation(80,270);
+                    auto.getCarrr4().setLocation(80,360);
+                    break;
             }
         }
 
