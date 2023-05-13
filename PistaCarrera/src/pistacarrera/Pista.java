@@ -17,6 +17,9 @@ public class Pista extends javax.swing.JFrame {
     PistaCarrera c1;
     PistaCarrera c3;
     PistaCarrera c4;
+    static int segundos=0;
+    static int minutos=0;
+    static boolean iniciar=true;
 
     /**
      * Creates new form Pista
@@ -69,6 +72,7 @@ public class Pista extends javax.swing.JFrame {
         rSLabelImage1 = new necesario.RSLabelImage();
         buttonAction1 = new org.edisoncor.gui.button.ButtonAction();
         buttonAction2 = new org.edisoncor.gui.button.ButtonAction();
+        lbTiempo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -113,6 +117,11 @@ public class Pista extends javax.swing.JFrame {
             }
         });
         panelRound1.add(buttonAction2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 510, -1, -1));
+
+        lbTiempo.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lbTiempo.setForeground(new java.awt.Color(255, 255, 255));
+        lbTiempo.setText("00:00");
+        panelRound1.add(lbTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,6 +198,7 @@ public class Pista extends javax.swing.JFrame {
     private necesario.RSLabelImage carro2;
     private necesario.RSLabelImage carro3;
     private necesario.RSLabelImage carro4;
+    private javax.swing.JLabel lbTiempo;
     private org.edisoncor.gui.panel.PanelRound panelRound1;
     private necesario.RSLabelImage rSLabelImage1;
     private necesario.RSLabelImage rSLabelImage3;
