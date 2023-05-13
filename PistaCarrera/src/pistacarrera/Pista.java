@@ -13,13 +13,21 @@ import javax.swing.JLabel;
  */
 public class Pista extends javax.swing.JFrame {
 
+    PistaCarrera c2;
+    PistaCarrera c1;
+    PistaCarrera c3;
+    PistaCarrera c4;
+
     /**
      * Creates new form Pista
      */
     public Pista() {
         initComponents();
         setLocationRelativeTo(null);
-
+        c1 = new PistaCarrera(carro1, this);
+        c2 = new PistaCarrera(carro2, this);
+        c3 = new PistaCarrera(carro3, this);
+        c4 = new PistaCarrera(carro4, this);
     }
 
     public JLabel getCarrro1() {
@@ -60,6 +68,7 @@ public class Pista extends javax.swing.JFrame {
         carro1 = new necesario.RSLabelImage();
         rSLabelImage1 = new necesario.RSLabelImage();
         buttonAction1 = new org.edisoncor.gui.button.ButtonAction();
+        buttonAction2 = new org.edisoncor.gui.button.ButtonAction();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -95,7 +104,15 @@ public class Pista extends javax.swing.JFrame {
                 buttonAction1ActionPerformed(evt);
             }
         });
-        panelRound1.add(buttonAction1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 530, -1, -1));
+        panelRound1.add(buttonAction1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, -1, -1));
+
+        buttonAction2.setText("PAUSAR");
+        buttonAction2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAction2ActionPerformed(evt);
+            }
+        });
+        panelRound1.add(buttonAction2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 510, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,20 +129,22 @@ public class Pista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction1ActionPerformed
-        carro1.setLocation(80,carro1.getLocation().y);
-        carro2.setLocation(80, carro2.getLocation().y);
-        carro3.setLocation(80, carro3.getLocation().y);
-        carro4.setLocation(80, carro4.getLocation().y);
-        PistaCarrera r = new PistaCarrera(carro1, this);
-        PistaCarrera r1 = new PistaCarrera(carro2, this);
-        PistaCarrera r2 = new PistaCarrera(carro3, this);
-        PistaCarrera r3 = new PistaCarrera(carro4, this);
-        r.start();
-        r1.start();
-        r2.start();
-        r3.start();
+        c1.star1();
+        c2.star1();
+        c3.star1();
+        c4.star1();
+
 
     }//GEN-LAST:event_buttonAction1ActionPerformed
+
+    private void buttonAction2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction2ActionPerformed
+        c1.star2();
+        c3.star2();
+        c4.star2();
+        c2.star2();
+
+
+    }//GEN-LAST:event_buttonAction2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,6 +184,7 @@ public class Pista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel barrera;
     private org.edisoncor.gui.button.ButtonAction buttonAction1;
+    private org.edisoncor.gui.button.ButtonAction buttonAction2;
     private necesario.RSLabelImage carro1;
     private necesario.RSLabelImage carro2;
     private necesario.RSLabelImage carro3;

@@ -18,10 +18,25 @@ public class PistaCarrera extends Thread {
 
     private JLabel etiqueta;
     private Pista auto;
+    private boolean iterar;
 
     public PistaCarrera(JLabel etiqueta, Pista auto) {
         this.etiqueta = etiqueta;
         this.auto = auto;
+        
+    }
+
+  
+
+    public boolean isIterar() {
+        return iterar;
+    }
+
+    public void setIterar(boolean iterar) {
+        this.iterar = iterar;
+    }
+
+    public PistaCarrera() {
     }
 
     @Override
@@ -30,7 +45,8 @@ public class PistaCarrera extends Thread {
         int auto2 = 0;
         int auto3 = 0;
         int auto4 = 0;
-        while (true) {
+        
+        while (iterar) {
             try {
                 sleep((int) (Math.random() * (100)));
                 auto1 = auto.getCarrro1().getLocation().x;
@@ -42,14 +58,14 @@ public class PistaCarrera extends Thread {
                     etiqueta.setLocation(etiqueta.getLocation().x + 10, etiqueta.getLocation().y);
                     auto.repaint();
                 } else {
-                
+
                     break;
                 }
             } catch (InterruptedException ex) {
                 Logger.getLogger(PistaCarrera.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (etiqueta.getLocation().x >= auto.getBarrera().getLocation().x - 150) {
-                
+
                 if (auto1 > auto2 && auto1 > auto3 && auto1 > auto4) {
                     JOptionPane.showMessageDialog(null, "EL GANADOR ES EL CARRO UNO");
                 } else if (auto2 > auto1 && auto2 > auto3 && auto2 > auto4) {
@@ -62,14 +78,25 @@ public class PistaCarrera extends Thread {
                     JOptionPane.showMessageDialog(null, "ES UN EMPATE");
 
                 }
-                    auto.getCarrro1().setLocation(50,60);
-                    auto.getCarrr2().setLocation(55,170);
-                    auto.getCarrr3().setLocation(55,270);
-                    auto.getCarrr4().setLocation(55,380);
-                    break;
-                 
+                auto.getCarrro1().setLocation(50, 60);
+                auto.getCarrr2().setLocation(55, 170);
+                auto.getCarrr3().setLocation(55, 270);
+                auto.getCarrr4().setLocation(55, 380);
+                break;
+
             }
         }
 
+    }
+
+    public void star1() {
+        iterar = true;
+        new Thread(this).start();
+       
+    }
+     public void star2() {
+        
+         iterar = false;
+       
     }
 }
