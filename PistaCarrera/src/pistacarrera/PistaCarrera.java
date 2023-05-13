@@ -32,7 +32,7 @@ public class PistaCarrera extends Thread {
         int auto4 = 0;
         while (true) {
             try {
-                sleep((int) (Math.random() * (1000)));
+                sleep((int) (Math.random() * (100)));
                 auto1 = auto.getCarrro1().getLocation().x;
                 auto2 = auto.getCarrr2().getLocation().x;
                 auto3 = auto.getCarrr3().getLocation().x;
@@ -49,21 +49,17 @@ public class PistaCarrera extends Thread {
             }
             if (etiqueta.getLocation().x >= auto.getBarrera().getLocation().x - 150) {
 
-                if (auto1 > auto2) {
+                if (auto1 > auto2 && auto1 > auto3 && auto1 > auto4) {
                     JOptionPane.showMessageDialog(null, "EL GANADOR ES EL CARRO UNO");
-                } else if (auto2 > auto1) {
+                } else if (auto2 > auto1 && auto2 > auto3 && auto2 > auto4) {
                     JOptionPane.showMessageDialog(null, "EL GANADOR ES EL CARRO DOS");
-                } else if (auto2 > auto3) {
-                    JOptionPane.showMessageDialog(null, "EL GANADOR ES EL CARRO DOS");
-                } else if (auto3 > auto2) {
+                } else if (auto3 > auto1 && auto3 > auto2 && auto3 > auto4) {
                     JOptionPane.showMessageDialog(null, "EL GANADOR ES EL CARRO TRES");
-                } else if (auto3 > auto4) {
-                    JOptionPane.showMessageDialog(null, "EL GANADOR ES EL CARRO TRES");
-                }else if (auto4 > auto3) {
+                } else if (auto4 > auto3 && auto4 > auto2 && auto4 > auto1) {
                     JOptionPane.showMessageDialog(null, "EL GANADOR ES EL CARRO CUATRO");
-                }else{
-                     JOptionPane.showMessageDialog(null, "ES UN EMPATE");
-                     
+                } else {
+                    JOptionPane.showMessageDialog(null, "ES UN EMPATE");
+
                 }
             }
         }
