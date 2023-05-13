@@ -62,11 +62,12 @@ public class PistaCarrera extends Thread {
                     JOptionPane.showMessageDialog(null, "ES UN EMPATE");
 
                 }
-                    auto.getCarrro1().setLocation(80,50);
-                    auto.getCarrr2().setLocation(80,160);
-                    auto.getCarrr3().setLocation(80,270);
-                    auto.getCarrr4().setLocation(80,360);
+                    auto.getCarrro1().setLocation(50,60);
+                    auto.getCarrr2().setLocation(55,170);
+                    auto.getCarrr3().setLocation(55,270);
+                    auto.getCarrr4().setLocation(55,380);
                     break;
+                 
             }
         }
 

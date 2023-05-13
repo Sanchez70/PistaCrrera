@@ -71,20 +71,20 @@ public class Pista extends javax.swing.JFrame {
         barrera.setOpaque(true);
         panelRound1.add(barrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 50, 30, 440));
 
-        carro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/coche-de-carreras (1).png"))); // NOI18N
-        panelRound1.add(carro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 100, 110));
+        carro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/image (1)-PhotoRoom.png-PhotoRoom (3).png"))); // NOI18N
+        panelRound1.add(carro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 110, 70));
 
-        carro3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carro-deportivo (1).png"))); // NOI18N
-        panelRound1.add(carro3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 110, 110));
+        carro3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/image (1)-PhotoRoom.png-PhotoRoom (2).png"))); // NOI18N
+        panelRound1.add(carro3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 110, 70));
 
-        carro4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carro-deportivo.png"))); // NOI18N
-        panelRound1.add(carro4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 120, 130));
+        carro4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/image (1)-PhotoRoom.png-PhotoRoom.png"))); // NOI18N
+        panelRound1.add(carro4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 110, 70));
 
         rSLabelImage3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/istockphoto-1254769820-170667a (1).jpg"))); // NOI18N
         panelRound1.add(rSLabelImage3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 800, 220));
 
-        carro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/coche-de-carreras.png"))); // NOI18N
-        panelRound1.add(carro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 100, 120));
+        carro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pixel (1) (2)-PhotoRoom.png-PhotoRoom.png"))); // NOI18N
+        panelRound1.add(carro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 110, 70));
 
         rSLabelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/istockphoto-1254769820-170667a.jpg"))); // NOI18N
         panelRound1.add(rSLabelImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 800, 220));
