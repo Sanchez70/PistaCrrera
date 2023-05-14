@@ -91,8 +91,8 @@ public class PistaCarrera extends Thread {
                 auto.getCarrr2().setLocation(55, 170);
                 auto.getCarrr3().setLocation(55, 270);
                 auto.getCarrr4().setLocation(55, 380);
-                n.parar();
-     
+                
+                n.reiniciar();
                 break;
 
             }
