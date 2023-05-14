@@ -5,7 +5,11 @@
  */
 package pistacarrera;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
+import javax.swing.JRootPane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
  *
@@ -13,13 +17,15 @@ import javax.swing.JLabel;
  */
 public class Pista extends javax.swing.JFrame {
 
+    Cronometro c7;
+
     PistaCarrera c2;
     PistaCarrera c1;
     PistaCarrera c3;
     PistaCarrera c4;
-    static int segundos=0;
-    static int minutos=0;
-    static boolean iniciar=true;
+    static int segundos = 0;
+    static int minutos = 0;
+    static boolean iniciar;
 
     /**
      * Creates new form Pista
@@ -27,10 +33,15 @@ public class Pista extends javax.swing.JFrame {
     public Pista() {
         initComponents();
         setLocationRelativeTo(null);
+        jInternalFrame1.setBorder(null);
+        BasicInternalFrameUI bui = (BasicInternalFrameUI) this.jInternalFrame1.getUI();
+        bui.setNorthPane(null);
         c1 = new PistaCarrera(carro1, this);
         c2 = new PistaCarrera(carro2, this);
         c3 = new PistaCarrera(carro3, this);
         c4 = new PistaCarrera(carro4, this);
+        c7 = new Cronometro(lbTiempo);
+
     }
 
     public JLabel getCarrro1() {
@@ -53,6 +64,14 @@ public class Pista extends javax.swing.JFrame {
         return barrera;
     }
 
+    public JLabel getTiempo() {
+        return lbTiempo;
+    }
+
+    public JLabel setTiempo() {
+        return lbTiempo;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,6 +82,9 @@ public class Pista extends javax.swing.JFrame {
     private void initComponents() {
 
         panelRound1 = new org.edisoncor.gui.panel.PanelRound();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
+        jPanel1 = new javax.swing.JPanel();
+        lbTiempo = new javax.swing.JLabel();
         barrera = new javax.swing.JLabel();
         carro2 = new necesario.RSLabelImage();
         carro3 = new necesario.RSLabelImage();
@@ -72,13 +94,55 @@ public class Pista extends javax.swing.JFrame {
         rSLabelImage1 = new necesario.RSLabelImage();
         buttonAction1 = new org.edisoncor.gui.button.ButtonAction();
         buttonAction2 = new org.edisoncor.gui.button.ButtonAction();
-        lbTiempo = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
         setUndecorated(true);
 
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jInternalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jInternalFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        jInternalFrame1.setResizable(true);
+        jInternalFrame1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jInternalFrame1.setFocusTraversalPolicyProvider(true);
+        jInternalFrame1.setFocusable(false);
+        jInternalFrame1.setInheritsPopupMenu(true);
+        jInternalFrame1.setVisible(true);
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+
+        lbTiempo.setBackground(new java.awt.Color(0, 0, 0));
+        lbTiempo.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lbTiempo.setForeground(new java.awt.Color(255, 255, 255));
+        lbTiempo.setText("00:00");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(80, Short.MAX_VALUE)
+                .addComponent(lbTiempo)
+                .addGap(70, 70, 70))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(lbTiempo)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jInternalFrame1.getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        panelRound1.add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, -1, -1));
+        try {
+            jInternalFrame1.setIcon(true);
+        } catch (java.beans.PropertyVetoException e1) {
+            e1.printStackTrace();
+        }
+        jInternalFrame1.getAccessibleContext().setAccessibleParent(this);
 
         barrera.setBackground(new java.awt.Color(204, 0, 0));
         barrera.setOpaque(true);
@@ -94,7 +158,7 @@ public class Pista extends javax.swing.JFrame {
         panelRound1.add(carro4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 110, 70));
 
         rSLabelImage3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/istockphoto-1254769820-170667a (1).jpg"))); // NOI18N
-        panelRound1.add(rSLabelImage3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 800, 220));
+        panelRound1.add(rSLabelImage3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 800, 210));
 
         carro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pixel (1) (2)-PhotoRoom.png-PhotoRoom.png"))); // NOI18N
         panelRound1.add(carro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 110, 70));
@@ -108,7 +172,7 @@ public class Pista extends javax.swing.JFrame {
                 buttonAction1ActionPerformed(evt);
             }
         });
-        panelRound1.add(buttonAction1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, -1, -1));
+        panelRound1.add(buttonAction1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, -1, -1));
 
         buttonAction2.setText("PAUSAR");
         buttonAction2.addActionListener(new java.awt.event.ActionListener() {
@@ -118,35 +182,41 @@ public class Pista extends javax.swing.JFrame {
         });
         panelRound1.add(buttonAction2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 510, -1, -1));
 
-        lbTiempo.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        lbTiempo.setForeground(new java.awt.Color(255, 255, 255));
-        lbTiempo.setText("00:00");
-        panelRound1.add(lbTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, -1, -1));
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        panelRound1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 520, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 1178, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 1198, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction1ActionPerformed
+
+        c7.iniciar();
         c1.star1();
         c2.star1();
         c3.star1();
         c4.star1();
-
+   
 
     }//GEN-LAST:event_buttonAction1ActionPerformed
 
     private void buttonAction2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction2ActionPerformed
+        c7.parar();
         c1.star2();
         c3.star2();
         c4.star2();
@@ -154,6 +224,10 @@ public class Pista extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_buttonAction2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,7 +272,10 @@ public class Pista extends javax.swing.JFrame {
     private necesario.RSLabelImage carro2;
     private necesario.RSLabelImage carro3;
     private necesario.RSLabelImage carro4;
-    private javax.swing.JLabel lbTiempo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JPanel jPanel1;
+    public static javax.swing.JLabel lbTiempo;
     private org.edisoncor.gui.panel.PanelRound panelRound1;
     private necesario.RSLabelImage rSLabelImage1;
     private necesario.RSLabelImage rSLabelImage3;
