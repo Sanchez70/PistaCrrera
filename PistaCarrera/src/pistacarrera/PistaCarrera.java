@@ -16,11 +16,11 @@ import javax.swing.JOptionPane;
  */
 public class PistaCarrera extends Thread {
 
-    Cronometro n = new Cronometro(Pista.lbTiempo);
+    
     private JLabel etiqueta;
     private Pista auto;
     private boolean iterar;
-
+    Cronometro n = new Cronometro(Pista.lbTiempo);
     public PistaCarrera(JLabel etiqueta, Pista auto) {
         this.etiqueta = etiqueta;
         this.auto = auto;
@@ -92,6 +92,8 @@ public class PistaCarrera extends Thread {
                 auto.getCarrr3().setLocation(55, 270);
                 auto.getCarrr4().setLocation(55, 380);
                 
+                n.parar();
+                System.out.println("PASANDO FALSE");
                 n.reiniciar();
                 break;
 

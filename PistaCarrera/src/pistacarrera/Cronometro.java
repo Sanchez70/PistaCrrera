@@ -16,8 +16,8 @@ import javax.swing.JLabel;
 public class Cronometro extends Thread {
 
     JLabel tiempo;
-    private boolean iterar;
-
+    static boolean iterar;
+    static boolean correr=false;
     public Cronometro(JLabel tiempo) {
         this.tiempo = tiempo;
     }
@@ -26,11 +26,11 @@ public class Cronometro extends Thread {
     public void run() {
         int x = 0;
 
-        while (iterar) {
+        while (iterar==true) {
             try {
                 Thread.sleep(100);
                 ejecutar(x);
-                System.out.println("SOY EL CRONOMETRO");
+  
                 x++;
 
             } catch (InterruptedException ex) {
@@ -70,17 +70,19 @@ public class Cronometro extends Thread {
     }
 
     public void iniciar() {
-        iterar = true;
-        new Thread(this).start();
+        if(correr==false){
+            Cronometro.iterar = true;
+            correr = true;
+            new Thread(this).start();
+        }
     }
 
     public void parar() {
         iterar = false;
-
+        correr = false;
     }
 
     public void reiniciar() {
-        iterar = true;
         Pista.segundos = 0;
         Pista.minutos = 0;
     }

@@ -205,7 +205,7 @@ public class Pista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction1ActionPerformed
-
+        Cronometro.iterar=true;
         c7.iniciar();
         c1.star1();
         c2.star1();
