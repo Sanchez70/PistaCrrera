@@ -17,20 +17,21 @@ public class Cronometro extends Thread {
 
     JLabel tiempo;
     static boolean iterar;
-    static boolean correr=false;
+    static boolean corre;
+    int x = 0;
+
     public Cronometro(JLabel tiempo) {
         this.tiempo = tiempo;
     }
 
     @Override
     public void run() {
-        int x = 0;
 
-        while (iterar==true) {
+        while (iterar) {
             try {
                 Thread.sleep(100);
                 ejecutar(x);
-  
+
                 x++;
 
             } catch (InterruptedException ex) {
@@ -70,19 +71,17 @@ public class Cronometro extends Thread {
     }
 
     public void iniciar() {
-        if(correr==false){
-            Cronometro.iterar = true;
-            correr = true;
-            new Thread(this).start();
-        }
+        iterar = true;
+        new Thread(this).start();
     }
 
     public void parar() {
         iterar = false;
-        correr = false;
+
     }
 
     public void reiniciar() {
+        x = 0;
         Pista.segundos = 0;
         Pista.minutos = 0;
     }

@@ -5,8 +5,11 @@
  */
 package pistacarrera;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JRootPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -26,6 +29,8 @@ public class Pista extends javax.swing.JFrame {
     static int segundos = 0;
     static int minutos = 0;
     static boolean iniciar;
+    ArrayList<String> ordenLlegada = new ArrayList<>();
+    ArrayList<String> ordenLlegada1 = new ArrayList<>();
 
     /**
      * Creates new form Pista
@@ -36,10 +41,10 @@ public class Pista extends javax.swing.JFrame {
         jInternalFrame1.setBorder(null);
         BasicInternalFrameUI bui = (BasicInternalFrameUI) this.jInternalFrame1.getUI();
         bui.setNorthPane(null);
-        c1 = new PistaCarrera(carro1, this);
-        c2 = new PistaCarrera(carro2, this);
-        c3 = new PistaCarrera(carro3, this);
-        c4 = new PistaCarrera(carro4, this);
+        c1 = new PistaCarrera(carro1, this, ordenLlegada, "Azul");
+        c2 = new PistaCarrera(carro2, this, ordenLlegada, "Rojo");
+        c3 = new PistaCarrera(carro3, this, ordenLlegada, "Verde");
+        c4 = new PistaCarrera(carro4, this, ordenLlegada, "Amarillo");
         c7 = new Cronometro(lbTiempo);
 
     }
@@ -71,7 +76,19 @@ public class Pista extends javax.swing.JFrame {
     public JLabel setTiempo() {
         return lbTiempo;
     }
- 
+
+    public void parar() {
+        c1.star2();
+        c3.star2();
+        c4.star2();
+        c2.star2();
+        c7.parar();
+    }
+
+    public void pararReloj() {
+       
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -205,28 +222,37 @@ public class Pista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction1ActionPerformed
-        Cronometro.iterar=true;
+
+        ordenLlegada.clear();
         c7.iniciar();
-        c1.star1();
-        c2.star1();
-        c3.star1();
-        c4.star1();
-   
+        if (iniciar == false) {
+            c1.star1();
+            c2.star1();
+            c3.star1();
+            c4.star1();
+            iniciar = true;
+        }
+        pararReloj();
+        
+//        System.out.println(ordenLlegada1.toString());
+//        Icon i1 = new ImageIcon("image (1)-PhotoRoom.png-PhotoRoom (1).jpg");
+//        carro1.setIcon(i1);
+
 
     }//GEN-LAST:event_buttonAction1ActionPerformed
 
     private void buttonAction2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction2ActionPerformed
-        c7.parar();
-        c1.star2();
-        c3.star2();
-        c4.star2();
-        c2.star2();
 
-
+        parar();
     }//GEN-LAST:event_buttonAction2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   
+        c1.renaudar();
+        c3.renaudar();
+        c4.renaudar();
+        c2.renaudar();
+        c7.iniciar();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -266,7 +292,7 @@ public class Pista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel barrera;
-    private org.edisoncor.gui.button.ButtonAction buttonAction1;
+    public static org.edisoncor.gui.button.ButtonAction buttonAction1;
     private org.edisoncor.gui.button.ButtonAction buttonAction2;
     private necesario.RSLabelImage carro1;
     private necesario.RSLabelImage carro2;
