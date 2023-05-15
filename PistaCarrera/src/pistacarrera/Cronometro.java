@@ -17,7 +17,7 @@ public class Cronometro extends Thread {
 
     JLabel tiempo;
     static boolean iterar;
-    static boolean corre;
+    static boolean corre=false;
     int x = 0;
 
     public Cronometro(JLabel tiempo) {
@@ -71,13 +71,16 @@ public class Cronometro extends Thread {
     }
 
     public void iniciar() {
-        iterar = true;
-        new Thread(this).start();
+        if(corre==false){
+            Cronometro.iterar = true;
+            corre = true;
+            new Thread(this).start();
+        }
     }
 
     public void parar() {
         iterar = false;
-
+        corre = false;
     }
 
     public void reiniciar() {

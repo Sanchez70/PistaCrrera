@@ -109,9 +109,10 @@ public class Pista extends javax.swing.JFrame {
         rSLabelImage3 = new necesario.RSLabelImage();
         carro1 = new necesario.RSLabelImage();
         rSLabelImage1 = new necesario.RSLabelImage();
-        buttonAction1 = new org.edisoncor.gui.button.ButtonAction();
-        buttonAction2 = new org.edisoncor.gui.button.ButtonAction();
-        jButton1 = new javax.swing.JButton();
+        btnIniciar = new org.edisoncor.gui.button.ButtonAction();
+        btnPausar = new org.edisoncor.gui.button.ButtonAction();
+        btnReanudar = new org.edisoncor.gui.button.ButtonAction();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -183,29 +184,32 @@ public class Pista extends javax.swing.JFrame {
         rSLabelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/istockphoto-1254769820-170667a.jpg"))); // NOI18N
         panelRound1.add(rSLabelImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 800, 220));
 
-        buttonAction1.setText("INICIAR");
-        buttonAction1.addActionListener(new java.awt.event.ActionListener() {
+        btnIniciar.setText("INICIAR");
+        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAction1ActionPerformed(evt);
+                btnIniciarActionPerformed(evt);
             }
         });
-        panelRound1.add(buttonAction1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, -1, -1));
+        panelRound1.add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, -1, -1));
 
-        buttonAction2.setText("PAUSAR");
-        buttonAction2.addActionListener(new java.awt.event.ActionListener() {
+        btnPausar.setText("PAUSAR");
+        btnPausar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAction2ActionPerformed(evt);
+                btnPausarActionPerformed(evt);
             }
         });
-        panelRound1.add(buttonAction2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 510, -1, -1));
+        panelRound1.add(btnPausar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 510, -1, -1));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnReanudar.setText("REANUDAR");
+        btnReanudar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnReanudarActionPerformed(evt);
             }
         });
-        panelRound1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 520, -1, -1));
+        panelRound1.add(btnReanudar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 510, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/piloto2-removebg-preview.png"))); // NOI18N
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 50, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -221,7 +225,7 @@ public class Pista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction1ActionPerformed
+    private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
 
         ordenLlegada.clear();
         c7.iniciar();
@@ -232,28 +236,31 @@ public class Pista extends javax.swing.JFrame {
             c4.star1();
             iniciar = true;
         }
-        pararReloj();
+        
         
 //        System.out.println(ordenLlegada1.toString());
 //        Icon i1 = new ImageIcon("image (1)-PhotoRoom.png-PhotoRoom (1).jpg");
 //        carro1.setIcon(i1);
 
 
-    }//GEN-LAST:event_buttonAction1ActionPerformed
+    }//GEN-LAST:event_btnIniciarActionPerformed
 
-    private void buttonAction2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction2ActionPerformed
-
+    private void btnPausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPausarActionPerformed
+//        c7.parar();
+//        c1.star2();
+//        c3.star2();
+//        c4.star2();
+//        c2.star2();
         parar();
-    }//GEN-LAST:event_buttonAction2ActionPerformed
+    }//GEN-LAST:event_btnPausarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnReanudarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReanudarActionPerformed
         c1.renaudar();
         c3.renaudar();
         c4.renaudar();
         c2.renaudar();
         c7.iniciar();
-
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnReanudarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,14 +299,15 @@ public class Pista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel barrera;
-    public static org.edisoncor.gui.button.ButtonAction buttonAction1;
-    private org.edisoncor.gui.button.ButtonAction buttonAction2;
+    public static org.edisoncor.gui.button.ButtonAction btnIniciar;
+    private org.edisoncor.gui.button.ButtonAction btnPausar;
+    private org.edisoncor.gui.button.ButtonAction btnReanudar;
     private necesario.RSLabelImage carro1;
     private necesario.RSLabelImage carro2;
     private necesario.RSLabelImage carro3;
     private necesario.RSLabelImage carro4;
-    private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JLabel lbTiempo;
     private org.edisoncor.gui.panel.PanelRound panelRound1;

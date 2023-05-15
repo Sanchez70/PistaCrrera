@@ -117,7 +117,7 @@ public class PistaCarrera extends Thread {
 
             n.parar();
 
-            star2();
+            //star2();
             auto.getCarrro1().setLocation(50, 60);
             auto.getCarrr2().setLocation(55, 170);
             auto.getCarrr3().setLocation(55, 270);
@@ -126,27 +126,29 @@ public class PistaCarrera extends Thread {
                 Podio nc = new Podio();
                 nc.setVisible(true);
             }
+            n.reiniciar();
 
         }
-        Pista.iniciar = false;
-        n.reiniciar();
+        //Pista.iniciar = false;
+        
 
     }
 
     public void star1() {
         iterar = true;
+        iterar1 = false;
         new Thread(this).start();
 
     }
 
     public void star2() {
         iterar = false;
-
+        Pista.iniciar = false;
     }
 
     public void renaudar() {
-
         iterar = true;
+        iterar1 = false;
         new Thread(this).start();
 
     }
