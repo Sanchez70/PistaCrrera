@@ -17,14 +17,14 @@ import javax.swing.JOptionPane;
  */
 public class PistaCarrera extends Thread {
 
-    static ArrayList<String> ordenLlegada;
+    static ArrayList<Auto> ordenLlegada;
     private String nombre;
     private JLabel etiqueta;
     private Pista auto;
     private boolean iterar;
     private boolean iterar1;
     Cronometro n = new Cronometro(Pista.lbTiempo);
-
+    Auto a1 = new Auto();
     public PistaCarrera(JLabel etiqueta, Pista auto, ArrayList ordenLlegada, String nombre) {
         this.etiqueta = etiqueta;
         this.auto = auto;
@@ -44,11 +44,11 @@ public class PistaCarrera extends Thread {
     public PistaCarrera() {
     }
 
-    public static ArrayList<String> getOrdenLlegada() {
+    public static ArrayList<Auto> getOrdenLlegada() {
         return ordenLlegada;
     }
 
-    public static void setOrdenLlegada(ArrayList<String> ordenLlegada) {
+    public static void setOrdenLlegada(ArrayList<Auto> ordenLlegada) {
         PistaCarrera.ordenLlegada = ordenLlegada;
     }
 
@@ -82,54 +82,25 @@ public class PistaCarrera extends Thread {
 
         if (iterar == true) {
 
-            System.out.println("HOLA");
             synchronized (ordenLlegada) {
-
-                ordenLlegada.add(nombre);
+                a1.setNombre(nombre);
+                a1.setTiempo(Pista.lbTiempo.getText());
+                ordenLlegada.add(a1);   
             }
-            StringBuilder mensaje = new StringBuilder();
-            String posicion = "";
-            for (int i = 0; i < ordenLlegada.size(); i++) {
-
-                switch (i + 1) {
-                    case 1:
-                        posicion = "1st";
-                        break;
-                    case 2:
-                        posicion = "2nd";
-                        break;
-                    case 3:
-                        posicion = "3rd";
-                        break;
-                    default:
-                        posicion = (i + 1) + "th";
-
-                        break;
-                }
-                mensaje.append(posicion).append(". ").append(ordenLlegada.get(0)).append("\n");
-            }
-
-            System.out.println("FIN");
-
-            System.out.println(ordenLlegada);
-
-            System.out.println("pasando false");
 
             n.parar();
-
-            //star2();
             auto.getCarrro1().setLocation(50, 60);
             auto.getCarrr2().setLocation(55, 170);
             auto.getCarrr3().setLocation(55, 270);
             auto.getCarrr4().setLocation(55, 380);
-            if (ordenLlegada.size() == 3) {
+            if (ordenLlegada.size() == 4) {
                 Podio nc = new Podio();
                 nc.setVisible(true);
             }
-            n.reiniciar();
+            
 
         }
-        //Pista.iniciar = false;
+        
         
 
     }

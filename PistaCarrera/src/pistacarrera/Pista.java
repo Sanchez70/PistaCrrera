@@ -29,8 +29,8 @@ public class Pista extends javax.swing.JFrame {
     static int segundos = 0;
     static int minutos = 0;
     static boolean iniciar;
-    ArrayList<String> ordenLlegada = new ArrayList<>();
-    ArrayList<String> ordenLlegada1 = new ArrayList<>();
+    ArrayList<Auto> ordenLlegada = new ArrayList<>();
+    //ArrayList<String> ordenLlegada1 = new ArrayList<>();
 
     /**
      * Creates new form Pista
@@ -236,21 +236,11 @@ public class Pista extends javax.swing.JFrame {
             c4.star1();
             iniciar = true;
         }
-        
-        
-//        System.out.println(ordenLlegada1.toString());
-//        Icon i1 = new ImageIcon("image (1)-PhotoRoom.png-PhotoRoom (1).jpg");
-//        carro1.setIcon(i1);
-
-
+ 
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     private void btnPausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPausarActionPerformed
-//        c7.parar();
-//        c1.star2();
-//        c3.star2();
-//        c4.star2();
-//        c2.star2();
+
         parar();
     }//GEN-LAST:event_btnPausarActionPerformed
 
