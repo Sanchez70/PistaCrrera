@@ -28,7 +28,8 @@ public class Pista extends javax.swing.JFrame {
     PistaCarrera c4;
     static int segundos = 0;
     static int minutos = 0;
-    static boolean iniciar;
+    static boolean iniciar = false;
+    static boolean iniciar1 = false;
     ArrayList<Auto> ordenLlegada = new ArrayList<>();
     //ArrayList<String> ordenLlegada1 = new ArrayList<>();
 
@@ -36,7 +37,10 @@ public class Pista extends javax.swing.JFrame {
      * Creates new form Pista
      */
     public Pista() {
+
         initComponents();
+        btnPausar.setEnabled(false);
+        btnReanudar.setEnabled(false);
         setLocationRelativeTo(null);
         jInternalFrame1.setBorder(null);
         BasicInternalFrameUI bui = (BasicInternalFrameUI) this.jInternalFrame1.getUI();
@@ -83,10 +87,7 @@ public class Pista extends javax.swing.JFrame {
         c4.star2();
         c2.star2();
         c7.parar();
-    }
-
-    public void pararReloj() {
-       
+        iniciar1 = false;
     }
 
     /**
@@ -118,6 +119,9 @@ public class Pista extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 0, 0));
         setUndecorated(true);
 
+        panelRound1.setColorDeBorde(new java.awt.Color(240, 240, 240));
+        panelRound1.setColorPrimario(new java.awt.Color(102, 0, 204));
+        panelRound1.setColorSecundario(new java.awt.Color(102, 0, 102));
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jInternalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -163,8 +167,9 @@ public class Pista extends javax.swing.JFrame {
         jInternalFrame1.getAccessibleContext().setAccessibleParent(this);
 
         barrera.setBackground(new java.awt.Color(204, 0, 0));
+        barrera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/barrera (1) (3).jpg"))); // NOI18N
         barrera.setOpaque(true);
-        panelRound1.add(barrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 50, 30, 440));
+        panelRound1.add(barrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 50, 40, 430));
 
         carro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/image (1)-PhotoRoom.png-PhotoRoom (3).png"))); // NOI18N
         panelRound1.add(carro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 110, 70));
@@ -226,7 +231,7 @@ public class Pista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-
+        btnPausar.setEnabled(true);
         ordenLlegada.clear();
         c7.iniciar();
         if (iniciar == false) {
@@ -236,20 +241,25 @@ public class Pista extends javax.swing.JFrame {
             c4.star1();
             iniciar = true;
         }
- 
+
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     private void btnPausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPausarActionPerformed
-
         parar();
+        btnReanudar.setEnabled(true);
     }//GEN-LAST:event_btnPausarActionPerformed
 
     private void btnReanudarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReanudarActionPerformed
-        c1.renaudar();
-        c3.renaudar();
-        c4.renaudar();
-        c2.renaudar();
-        c7.iniciar();
+        if (iniciar1 == false) {
+
+            c1.renaudar();
+            c3.renaudar();
+            c4.renaudar();
+            c2.renaudar();
+            c7.iniciar();
+            iniciar1 = true;
+        }
+
     }//GEN-LAST:event_btnReanudarActionPerformed
 
     /**

@@ -25,6 +25,7 @@ public class PistaCarrera extends Thread {
     private boolean iterar1;
     Cronometro n = new Cronometro(Pista.lbTiempo);
     Auto a1 = new Auto();
+
     public PistaCarrera(JLabel etiqueta, Pista auto, ArrayList ordenLlegada, String nombre) {
         this.etiqueta = etiqueta;
         this.auto = auto;
@@ -64,7 +65,7 @@ public class PistaCarrera extends Thread {
         while (iterar && posX < 800) {
 
             try {
-                sleep(10);
+                sleep((int) (Math.random() * 40));
                 auto1 = auto.getCarrro1().getLocation().x;
                 auto2 = auto.getCarrr2().getLocation().x;
                 auto3 = auto.getCarrr3().getLocation().x;
@@ -80,46 +81,51 @@ public class PistaCarrera extends Thread {
 
         }
 
-        if (iterar == true) {
+        if (iterar1 == true) {
 
             synchronized (ordenLlegada) {
                 a1.setNombre(nombre);
                 a1.setTiempo(Pista.lbTiempo.getText());
-                ordenLlegada.add(a1);   
+                ordenLlegada.add(a1);
             }
 
-            n.parar();
-            auto.getCarrro1().setLocation(50, 60);
-            auto.getCarrr2().setLocation(55, 170);
-            auto.getCarrr3().setLocation(55, 270);
-            auto.getCarrr4().setLocation(55, 380);
             if (ordenLlegada.size() == 4) {
+                n.parar();
                 Podio nc = new Podio();
+
                 nc.setVisible(true);
+                auto.getCarrro1().setLocation(50, 60);
+                auto.getCarrr2().setLocation(55, 170);
+                auto.getCarrr3().setLocation(55, 270);
+                auto.getCarrr4().setLocation(55, 380);
+                auto.parar();;
+                auto.setVisible(false);
+                n.reiniciar();
+                Pista.iniciar=false;
+
             }
-            
 
         }
-        
-        
 
     }
 
     public void star1() {
         iterar = true;
-        iterar1 = false;
+        iterar1 = true;
         new Thread(this).start();
 
     }
 
     public void star2() {
         iterar = false;
-        Pista.iniciar = false;
+        iterar1 = false;
+        Pista.iniciar = true;
+        Pista.iniciar1= false;
     }
 
     public void renaudar() {
         iterar = true;
-        iterar1 = false;
+        iterar1 = true;
         new Thread(this).start();
 
     }
