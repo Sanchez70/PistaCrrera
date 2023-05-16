@@ -62,7 +62,7 @@ public class PistaCarrera extends Thread {
         int auto4 = 0;
         double posX = etiqueta.getLocation().getX();
         double posY = etiqueta.getLocation().getY();
-        while (iterar && posX < 800) {
+        while (iterar && posX < 820) {
 
             try {
                 sleep((int) (Math.random() * 40));
@@ -98,10 +98,10 @@ public class PistaCarrera extends Thread {
                 auto.getCarrr2().setLocation(55, 170);
                 auto.getCarrr3().setLocation(55, 270);
                 auto.getCarrr4().setLocation(55, 380);
-                auto.parar();;
+                star2();
                 auto.setVisible(false);
                 n.reiniciar();
-                Pista.iniciar=false;
+                Pista.iniciar = false;
 
             }
 
@@ -120,7 +120,7 @@ public class PistaCarrera extends Thread {
         iterar = false;
         iterar1 = false;
         Pista.iniciar = true;
-        Pista.iniciar1= false;
+        Pista.iniciar1 = false;
     }
 
     public void renaudar() {
