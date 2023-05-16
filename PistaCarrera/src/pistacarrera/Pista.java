@@ -103,12 +103,12 @@ public class Pista extends javax.swing.JFrame {
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jPanel1 = new javax.swing.JPanel();
         lbTiempo = new javax.swing.JLabel();
-        barrera = new javax.swing.JLabel();
         carro2 = new necesario.RSLabelImage();
         carro3 = new necesario.RSLabelImage();
         carro4 = new necesario.RSLabelImage();
-        rSLabelImage3 = new necesario.RSLabelImage();
         carro1 = new necesario.RSLabelImage();
+        barrera = new javax.swing.JLabel();
+        rSLabelImage3 = new necesario.RSLabelImage();
         rSLabelImage1 = new necesario.RSLabelImage();
         btnIniciar = new org.edisoncor.gui.button.ButtonAction();
         btnPausar = new org.edisoncor.gui.button.ButtonAction();
@@ -166,11 +166,6 @@ public class Pista extends javax.swing.JFrame {
         }
         jInternalFrame1.getAccessibleContext().setAccessibleParent(this);
 
-        barrera.setBackground(new java.awt.Color(204, 0, 0));
-        barrera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/barrera (1) (3).jpg"))); // NOI18N
-        barrera.setOpaque(true);
-        panelRound1.add(barrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 50, 40, 430));
-
         carro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/image (1)-PhotoRoom.png-PhotoRoom (3).png"))); // NOI18N
         panelRound1.add(carro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 110, 70));
 
@@ -180,11 +175,16 @@ public class Pista extends javax.swing.JFrame {
         carro4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/image (1)-PhotoRoom.png-PhotoRoom.png"))); // NOI18N
         panelRound1.add(carro4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 110, 70));
 
-        rSLabelImage3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/istockphoto-1254769820-170667a (1).jpg"))); // NOI18N
-        panelRound1.add(rSLabelImage3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 800, 210));
-
         carro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pixel (1) (2)-PhotoRoom.png-PhotoRoom.png"))); // NOI18N
         panelRound1.add(carro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 110, 70));
+
+        barrera.setBackground(new java.awt.Color(204, 0, 0));
+        barrera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/barrera (1) (3).jpg"))); // NOI18N
+        barrera.setOpaque(true);
+        panelRound1.add(barrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 50, 40, 430));
+
+        rSLabelImage3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/istockphoto-1254769820-170667a (1).jpg"))); // NOI18N
+        panelRound1.add(rSLabelImage3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 800, 210));
 
         rSLabelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/istockphoto-1254769820-170667a.jpg"))); // NOI18N
         panelRound1.add(rSLabelImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 800, 220));
@@ -233,8 +233,9 @@ public class Pista extends javax.swing.JFrame {
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
         btnPausar.setEnabled(true);
         ordenLlegada.clear();
-        c7.iniciar();
+
         if (iniciar == false) {
+            c7.iniciar();
             c1.star1();
             c2.star1();
             c3.star1();
